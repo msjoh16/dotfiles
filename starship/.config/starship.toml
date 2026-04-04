@@ -1,0 +1,40 @@
+# ~/.config/starship.toml
+
+# Use custom format
+format = '''
+[╭─────](bold orange)
+[│](bold orange)$directory$git_branch$git_commit
+[╰─>](bold orange) '''
+
+# Define custom palette
+palette = 'lantern'
+
+# Define colors
+[palettes.lantern]
+orange = '#e35b15'
+light_green = '#82a23a'
+dark_green = '#4d772d'
+dark_blue = '#4395a3'
+dark_yellow = '#fabc2c'
+
+# Configure directory
+[directory]
+style = 'dark_yellow'
+repo_root_style = 'light_green'
+truncation_length = 8
+truncation_symbol = '.../'
+
+# Configure git
+[git_branch]
+always_show_remote = true
+format = 'on [$symbol$branch(:$remote_branch)]($style) '
+
+# TODO format git commit
+
+# TODO format git state
+
+# TODO format git status??
+
+# TODO insert python formatting x
+
+
