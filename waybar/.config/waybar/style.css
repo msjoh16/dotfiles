@@ -1,0 +1,43 @@
+* {
+    font-family: "FiraCode Nerd Font", monospace;
+    font-size: 15px;
+}
+
+window#waybar {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+#workspaces button {
+    min-width: 8px;
+    min-height: 8px;
+    margin: 8px 3px;
+    padding: 0;
+    background-color: #fabc2c;
+    border-radius: 0;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    min-width: 40px;
+    background-color: #e35b15;
+    border-radius: 0;
+}
+
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#battery,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 10px;
+    color: #e4cbb3;
+}
+
+#clock {
+    color: #e4cbb3;
+}

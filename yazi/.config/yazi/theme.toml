@@ -1,0 +1,15 @@
+[icon]
+prepend_dirs = [
+    { name = "downloads",  text = "󰇚", fg = "#e35b15" },
+    { name = ".emacs.d",   text = "", fg = "#e35b15" },
+    { name = ".config",    text = "", fg = "#e35b15" },
+    { name = "dotfiles",   text = "", fg = "#e35b15" },
+    { name = ".ssh",       text = "", fg = "#e35b15"},
+    { name = "files",      text = "", fg = "#e35b15" }
+]
+
+[filetype]
+rules = [
+    { url = "*/",  fg = "#e35b15" },  # directories
+    { url = "*",   fg = "#e4cbb3" }   # everything else (files)
+]
