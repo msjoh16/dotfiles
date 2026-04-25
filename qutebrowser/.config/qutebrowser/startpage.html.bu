@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg:        #0d0d0f;
+      --bg-card:   #111114;
+      --border:    #222228;
+      --border-hover: #3a3a48;
+      --text-dim:  #3e3e50;
+      --text-mid:  #7a7a95;
+      --text-main: #c8c8d8;
+      --text-bright: #eeeef4;
+      --accent:    #5c4fff;
+      --accent-glow: rgba(92, 79, 255, 0.15);
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      background-color: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inconsolata', monospace;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    /* Subtle grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.4;
+    }
+
+    /* Faint radial glow at center */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(92,79,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 56px;
+      animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Clock */
+    .clock {
+      text-align: center;
+      line-height: 1;
+    }
+
+    .clock-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(72px, 12vw, 120px);
+      letter-spacing: -0.02em;
+      color: var(--text-bright);
+      opacity: 0.92;
+    }
+
+    .clock-date {
+      margin-top: 10px;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* Links */
+    .links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+      position: relative;
+    }
+
+    .link:hover {
+      color: var(--text-bright);
+      border-color: var(--border-hover);
+      background: #16161b;
+      box-shadow: 0 0 32px var(--accent-glow), 0 2px 12px rgba(0,0,0,0.5);
+      transform: translateY(-2px);
+    }
+
+    .link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      opacity: 0.5;
+      transition: opacity 0.25s ease;
+    }
+
+    .link:hover svg {
+      opacity: 0.9;
+    }
+
+    /* Divider line */
+    .rule {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--border) 40%, var(--border) 60%, transparent);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="clock">
+      <div class="clock-time" id="time">00:00</div>
+      <div class="clock-date" id="date">—</div>
+    </div>
+
+    <div class="links">
+
+      <!-- Google -->
+      <a class="link" href="https://google.com">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.805 10.023H12v4.05h5.648c-.56 2.65-2.883 4.477-5.648 4.477a6.25 6.25 0 0 1 0-12.5c1.588 0 3.022.597 4.116 1.572l2.866-2.866A10.48 10.48 0 0 0 12 1.5C6.201 1.5 1.5 6.201 1.5 12S6.201 22.5 12 22.5c5.523 0 10.3-4 10.3-10.5 0-.664-.064-1.311-.495-1.977Z" fill="currentColor"/>
+        </svg>
+        Google
+      </a>
+
+      <div class="rule"></div>
+
+      <!-- YouTube -->
+      <a class="link" href="https://youtube.com">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.54 6.42a2.84 2.84 0 0 0-2-2.01C18.88 4 12 4 12 4s-6.88 0-8.54.41a2.84 2.84 0 0 0-2 2.01A29.94 29.94 0 0 0 1 12a29.94 29.94 0 0 0 .46 5.58 2.84 2.84 0 0 0 2 2C5.12 20 12 20 12 20s6.88 0 8.54-.42a2.84 2.84 0 0 0 2-2A29.94 29.94 0 0 0 23 12a29.94 29.94 0 0 0-.46-5.58ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z" fill="currentColor"/>
+        </svg>
+        YouTube
+      </a>
+
+      <div class="rule"></div>
+
+      <!-- Claude -->
+      <a class="link" href="https://claude.com">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.54 6.42a2.84 2.84 0 0 0-2-2.01C18.88 4 12 4 12 4s-6.88 0-8.54.41a2.84 2.84 0 0 0-2 2.01A29.94 29.94 0 0 0 1 12a29.94 29.94 0 0 0 .46 5.58 2.84 2.84 0 0 0 2 2C5.12 20 12 20 12 20s6.88 0 8.54-.42a2.84 2.84 0 0 0 2-2A29.94 29.94 0 0 0 23 12a29.94 29.94 0 0 0-.46-5.58ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z" fill="currentColor"/>
+        </svg>
+        Claude
+      </a>      
+
+    </div>
+  </div>
+
+  <script>
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const now = new Date();
+      let h = now.getHours();
+      const m = pad(now.getMinutes());
+      const ampm = h >= 12 ? 'pm' : 'am';
+      h = h % 12 || 12;
+
+      document.getElementById('time').textContent = `${h}:${m}`;
+
+      const days   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const d = now.getDate();
+      document.getElementById('date').textContent =
+        `${days[now.getDay()]}  ·  ${months[now.getMonth()]} ${d}`;
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>

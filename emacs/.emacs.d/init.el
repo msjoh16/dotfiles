@@ -67,6 +67,20 @@
 (use-package magit
   :ensure t)
 
+;; Load fonts when using emacs client -----------------------------------------------
+(defun strider/setup-frame (frame)
+  (with-selected-frame frame
+    (when (display-graphic-p frame)
+      (set-face-attribute 'default frame
+                          :font "FiraCode Nerd Font Mono"
+                          :height 110))))
+
+(add-hook 'after-make-frame-functions #'strider/setup-frame)
+
+;; Also handle the case where Emacs is launched directly (not as daemon)
+(when (display-graphic-p)
+  (strider/setup-frame (selected-frame)))
+
 ;; Ivy ------------------------------------------------------------------------------
 (use-package ivy
   :diminish
@@ -153,8 +167,9 @@
 
 ;; Citar ----------------------------------------------------------------------------
 (use-package citar
-  :custom
-  (citar-bibliography '("/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/literature/refs_main.bib")))
+  :ensure t)
+;  :custom
+;  (citar-bibliography '("/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/literature/refs_main.bib")))
 
 ;; Biblio ---------------------------------------------------------------------------
 (use-package biblio)
@@ -210,7 +225,7 @@
   :hook (org-mode . strider/org-mode-setup)
   :config
   (setq org-ellipsis " ▾"
-	org-hide-emphasis-markers t))
+	org-hide-emphasis-markers nil))
 
 (use-package org-bullets
   :after org
@@ -310,10 +325,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(all-the-icons biblio calfw-org citar counsel doom-modeline
-		   doom-themes evil general helpful ivy-rich magit
-		   ob-mermaid org-bullets ox-pandoc visual-fill-column)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
