@@ -10,7 +10,17 @@
 
     "hyprland/workspaces": {
         "disable-scroll": true,
-	"format": ""
+	"format": "{icon} {windows}",
+    	"format-window-separator": " ",
+    	"window-rewrite-default": "󰣆",
+    	"window-rewrite": {
+        	"title<.*youtube.*>": "󰗃",
+		"title<.*yazi.*>": "󰉋",
+        	"class<firefox>": "󰈹",
+        	"class<emacs>": "",
+        	"class<kitty>": "",
+		"class<org.qutebrowser.qutebrowser>": ""
+	},
     },
 
     "clock": {

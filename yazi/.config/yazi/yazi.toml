@@ -1,2 +1,13 @@
 [mgr]
 show_hidden = true
+show_symlink = true      # show → target after symlink name
+
+[opener]
+edit-emacs = [
+    { run = "emacsclient -c %s", orphan = true }
+]
+
+[open]
+prepend_rules = [
+    { url = "*.org", use = "edit-emacs" },
+]

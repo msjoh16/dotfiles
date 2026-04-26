@@ -1,11 +1,12 @@
 [icon]
 prepend_dirs = [
-    { name = "downloads",  text = "󰇚", fg = "#e35b15" },
-    { name = ".emacs.d",   text = "", fg = "#e35b15" },
-    { name = ".config",    text = "", fg = "#e35b15" },
-    { name = "dotfiles",   text = "", fg = "#e35b15" },
-    { name = ".ssh",       text = "", fg = "#e35b15"},
-    { name = "files",      text = "", fg = "#e35b15" }
+    { name = "downloads",         text = "󰇚", fg = "#e35b15" },
+    { name = ".emacs.d",          text = "", fg = "#e35b15" },
+    { name = ".config",           text = "", fg = "#e35b15" },
+    { name = "dotfiles",          text = "", fg = "#e35b15" },
+    { name = ".ssh",              text = "", fg = "#e35b15" },
+    { name = "research_notebook", text = "󰙨", fg = "#e35b15" },
+    { name = "files",             text = "", fg = "#e35b15" }
 ]
 
 [filetype]

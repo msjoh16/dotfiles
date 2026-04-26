@@ -8,11 +8,11 @@ window#waybar {
     border-bottom: none;
 }
 
+
 #workspaces button {
-    min-width: 8px;
-    min-height: 8px;
-    margin: 8px 3px;
-    padding: 0;
+    min-width: 20px;
+    padding: 0 6px;
+    margin: 4px 3px;
     background-color: #fabc2c;
     border-radius: 0;
     border: none;
@@ -20,8 +20,9 @@ window#waybar {
 }
 
 #workspaces button.active {
-    min-width: 40px;
+    min-width: 60px;
     background-color: #e35b15;
+    color: #1b110e;
     border-radius: 0;
 }
 
