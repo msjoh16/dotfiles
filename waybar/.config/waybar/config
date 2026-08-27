@@ -16,6 +16,8 @@
     	"window-rewrite": {
         	"title<.*youtube.*>": "󰗃",
 		"title<.*yazi.*>": "󰉋",
+		"title<.*claude.*>": "󰧑",
+		"title<.*mpv.*>": "󰕧",
         	"class<firefox>": "󰈹",
         	"class<emacs>": "",
         	"class<kitty>": "",

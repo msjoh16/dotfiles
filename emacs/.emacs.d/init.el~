@@ -391,7 +391,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(all-the-icons biblio calfw-org citar counsel doom-modeline
-		   doom-themes elfeed-org evil general helpful
+		   doom-themes elfeed elfeed-org evil general helpful
 		   ivy-rich magit ob-mermaid org-bullets ox-pandoc
 		   visual-fill-column)))
 (custom-set-faces

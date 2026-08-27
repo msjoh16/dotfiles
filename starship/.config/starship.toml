@@ -3,7 +3,7 @@
 # Use custom format
 format = '''
 [╭─────](bold orange)
-[│](bold orange)$directory$git_branch$git_commit
+[│](bold orange)$directory$git_branch$git_commit$python
 [╰─>](bold orange) '''
 
 # Define custom palette
@@ -35,6 +35,10 @@ format = 'on [$symbol$branch(:$remote_branch)]($style) '
 
 # TODO format git status??
 
-# TODO insert python formatting x
-
+# Configure python
+[python]
+symbol = ''
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = 'dark_green'
+pyenv_version_name = false
 

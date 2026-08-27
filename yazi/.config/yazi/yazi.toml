@@ -10,4 +10,6 @@ edit-emacs = [
 [open]
 prepend_rules = [
     { url = "*.org", use = "edit-emacs" },
+    { url = "*.py", use = "edit-emacs"  },
+    { url = "*.txt", use = "edit-emacs" }
 ]

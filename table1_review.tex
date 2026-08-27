@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{geometry}
+\geometry{margin=2cm}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty}
+
+\begin{document}
+\fontsize{8}{10}\selectfont
+
+\begin{longtable}{p{2.2cm}p{2.2cm}p{1.3cm}p{2.8cm}p{2cm}p{1.5cm}p{2.3cm}}
+\toprule
+\textbf{Study} & \textbf{Clinical Question} & \textbf{Data Type} & \textbf{Dataset} & \textbf{Models} & \textbf{Performance} & \textbf{Validation} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Study} & \textbf{Clinical Question} & \textbf{Data Type} & \textbf{Dataset} & \textbf{Models} & \textbf{Performance} & \textbf{Validation} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{\footnotesize\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+et al & & & XYZ (n=aaa) & & & external/internal \\
+\hline
+Ungan et al. & Glioma classification & MRSI & Single-center institutional cohort (n=12) & G-NMU\\UMAP\\K-means clustering & AUC=99.07 & Internal cross-validation \\
+\end{longtable}
+
+\end{document}
