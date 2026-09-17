@@ -1,3 +1,5 @@
+;;; init.el --- Personal Emacs configuration -*- lexical-binding: t; -*-
+
 ;; To run init file using custom path (example)
 ;; emacs -q -l /Users/adamsjoholm/Documents/projects/emacs/init.el
 
@@ -225,8 +227,8 @@
 ;; Biblio ---------------------------------------------------------------------------
 (use-package biblio)
 
-(use-package biblio-openlibrary
-  :after biblio)
+;(use-package biblio-openlibrary
+;  :after biblio)
 
 ;; Mermaid --------------------------------------------------------------------------
 (use-package ob-mermaid
