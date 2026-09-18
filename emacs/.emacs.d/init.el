@@ -59,6 +59,57 @@
 
 (require 'use-package) ; load use-packages 
 (setq use-package-always-ensure t)
+
+;; Org mode -------------------------------------------------------------------------
+(defun strider/org-mode-setup ()
+  (org-indent-mode)
+  (visual-line-mode 1))
+
+(use-package org
+  :hook (org-mode . strider/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾"
+	org-hide-emphasis-markers nil))
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+;; Turn "-" into "•"
+(font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+(defun strider/org-mode-visual-fill ()
+  (setq visual-fill-column-width 130
+	visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . strider/org-mode-visual-fill))
+
+(setq org-agenda-files
+      '("/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/notes/agenda.org"
+	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/tgfb_inhibition/ic_tgfbtrap_hidose_sting_ic/notebook/notes.org"
+	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/ep4_antagonism/pilot_vorb/notebook/notes.org"
+	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/nrp2/14v11_28v4_mono_survival/notebook/notes.org"))
+
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NOTE(n)" "ONGOING(g)" "|" "DONE(d)" "CANCELED(c)")
+	(sequence "HABIT(h)" "|" "DONE(d)" "SKIP(s)")
+	(sequence "DUE(d)" "|" "SUBMITTED(u)")
+	(sequence "EXAM(x)" "QUIZ(q)" "|" "DONE(d)")
+	(sequence "EVENT(e)" "HOLD(H)" "LECTURE(l)" "LAB(b)" "OFFICE(o)" "TRAVEL(T)" "|" "PAST(p)" "CANCELED(c)")
+	(sequence "EXPIRE(r)" "|" "UPDATED(a)")
+        (sequence "MSG(m)" "|" "SENT(s)")))
+
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "#e01d1d"))   ;; Red Dark
+	("DUE" . (:foreground "#fabc2c"))))  ;; Yellow Dark
+
+(setq org-agenda-span 'fortnight)
 	 
 ;; Doom themes ----------------------------------------------------------------------
 (use-package doom-themes
@@ -281,57 +332,6 @@
   :keymaps 'elfeed-search-mode-map
   "K" '(strider/elfeed-tag-keep :which-key "toggle keep")
   "D" '(strider/elfeed-tag-drop :which-key "toggle drop"))
-
-;; Org mode -------------------------------------------------------------------------
-(defun strider/org-mode-setup ()
-  (org-indent-mode)
-  (visual-line-mode 1))
-
-(use-package org
-  :hook (org-mode . strider/org-mode-setup)
-  :config
-  (setq org-ellipsis " ▾"
-	org-hide-emphasis-markers nil))
-
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
-
-;; Turn "-" into "•"
-(font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
-(defun strider/org-mode-visual-fill ()
-  (setq visual-fill-column-width 130
-	visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
-(use-package visual-fill-column
-  :hook (org-mode . strider/org-mode-visual-fill))
-
-(setq org-agenda-files
-      '("/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/notes/agenda.org"
-	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/tgfb_inhibition/ic_tgfbtrap_hidose_sting_ic/notebook/notes.org"
-	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/ep4_antagonism/pilot_vorb/notebook/notes.org"
-	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/nrp2/14v11_28v4_mono_survival/notebook/notes.org"))
-
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "NOTE(n)" "ONGOING(g)" "|" "DONE(d)" "CANCELED(c)")
-	(sequence "HABIT(h)" "|" "DONE(d)" "SKIP(s)")
-	(sequence "DUE(d)" "|" "SUBMITTED(u)")
-	(sequence "EXAM(x)" "QUIZ(q)" "|" "DONE(d)")
-	(sequence "EVENT(e)" "HOLD(H)" "LECTURE(l)" "LAB(b)" "OFFICE(o)" "TRAVEL(T)" "|" "PAST(p)" "CANCELED(c)")
-	(sequence "EXPIRE(r)" "|" "UPDATED(a)")
-        (sequence "MSG(m)" "|" "SENT(s)")))
-
-(setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "#e01d1d"))   ;; Red Dark
-	("DUE" . (:foreground "#fabc2c"))))  ;; Yellow Dark
-
-(setq org-agenda-span 'fortnight)
 
 ;; Ox-Pandoc ------------------------------------------------------------------------
 (use-package ox-pandoc)
