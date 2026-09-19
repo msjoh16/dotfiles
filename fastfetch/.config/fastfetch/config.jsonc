@@ -1,8 +1,8 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
-    "type": "auto",
-    "source": "",
+    "type": "kitty-direct",
+    "source": "~/.config/fastfetch/gateway.png",
     "color": {
       "1": "#e35b15",
       "2": "#e35b15",
@@ -14,7 +14,7 @@
       "8": "",
       "9": ""
     },
-    "width": null,
+    "width": 40,
     "height": null,
     "padding": {
       "top": 0,
@@ -36,7 +36,7 @@
     "showErrors": false,
     "disableLinewrap": true,
     "hideCursor": false,
-    "separator": ": ",
+    "separator": " ➜  ",
     "color": {
       "keys": "",
       "title": "",
@@ -125,130 +125,134 @@
       "keyIcon": "",
       "fqdn": false,
       "color": {
-        "user": "",
-        "at": "",
-        "host": ""
+        "user": "30",
+        "at": "30",
+        "host": "30"
       }
     },
     {
       "type": "separator",
       "string": "-",
-      "outputColor": "",
+      "outputColor": "33",
       "times": 0
     },
+
     {
       "type": "os",
-      "keyIcon": ""
+      "key": "OS   ",
+      "keyColor": "30",
+      "keyIcon": ""
     },
-    {
-      "type": "host",
-      "keyIcon": "󰌢"
-    },
+
     {
       "type": "kernel",
-      "keyIcon": ""
+      "key": " ├  ",
+      "keyColor": "30",
+      "keyIcon": ""
     },
-    {
-      "type": "uptime",
-      "keyIcon": ""
-    },
+
     {
       "type": "packages",
-      "keyIcon": "󰏖",
-      "disabled": [
-        "apk"
-      ],
-      "combined": false
+      "format": "{} (pacman)",
+      "key": " ├ 󰏖 ",
+      "keyColor": "30",
+      "keyIcon": " "
     },
+
     {
       "type": "shell",
-      "keyIcon": ""
+      "key": " └  ",
+      "keyColor": "30",
+      "keyIcon": ""
     },
-    {
-      "type": "display",
-      "keyIcon": "󰍹",
-      "compactType": "none",
-      "preciseRefreshRate": false,
-      "order": null
-    },
-    {
-      "type": "de",
-      "keyIcon": ""
-    },
+
+    "break",
+
     {
       "type": "wm",
-      "keyIcon": "",
+      "key": "WM   ",
+      "keyColor": "30",
+      "keyIcon": "",
       "detectPlugin": true
     },
-    {
-      "type": "wmtheme",
-      "keyIcon": "󰓸"
-    },
-    {
-      "type": "theme",
-      "keyIcon": "󰉼"
-    },
-    {
-      "type": "icons",
-      "keyIcon": ""
-    },
-    {
-      "type": "font",
-      "keyIcon": ""
-    },
-    {
-      "type": "cursor",
-      "keyIcon": "󰆿"
-    },
+
     {
       "type": "terminal",
-      "keyIcon": ""
+      "key": " ├  ",
+      "keyColor": "30",
+      "keyIcon": ""
     },
+
+    {
+      "type": "cursor",
+      "key": " ├  ",
+      "keyColor": "30",
+      "keyIcon": ""
+    },
+
     {
       "type": "terminalfont",
-      "keyIcon": ""
+      "key": " └  ",
+      "keyColor": "30",
+      "keyIcon": ""
     },
+
+    "break",
+
+    {
+      "type": "host",
+      "format": "{5} {1} Type {2}",
+      "key": "PC   ",
+      "keyColor": "30",      
+      "keyIcon": ""
+    },
+
     {
       "type": "cpu",
-      "keyIcon": "",
-      "temp": false,
-      "showPeCoreCount": false
+      "format": "{1} ({3}) @ {7} GHz",
+      "key": " ├  ",
+      "keyColor": "30",
+      "keyIcon": "",
     },
+
     {
       "type": "gpu",
-      "keyIcon": "󰾲",
-      "driverSpecific": false,
-      "detectionMethod": "pci",
-      "temp": false,
-      "hideType": "none",
-      "percent": {
-        "green": 50,
-        "yellow": 80,
-        "type": 0
-      }
+      "format": "{1} {2} @ {12} GHz",            
+      "key": " ├ 󰢮 ",
+      "keyColor": "30",
+      "keyIcon": "" 
     },
+
     {
       "type": "memory",
-      "keyIcon": "",
+      "key": " ├  ",
+      "keyColor": "30",
+      "keyIcon": "",
       "percent": {
         "green": 50,
         "yellow": 80,
         "type": 0
       }
     },
+
     {
       "type": "swap",
+      "key": " ├ 󰓡 ",
+      "keyColor": "30",
       "percent": {
         "green": 50,
         "yellow": 80,
         "type": 0
       },
-      "keyIcon": "󰓡",
+      "keyIcon": "",
       "separate": false
     },
+
     {
       "type": "disk",
-      "keyIcon": "",
+      "key": " ├ 󰋊 ",
+      "keyColor": "30",
+      "keyIcon": "",
       "showRegular": true,
       "showExternal": true,
       "showHidden": false,
@@ -265,9 +269,32 @@
         "type": 0
       }
     },
+
+    {
+      "type": "uptime",
+      "key": " ├  ",
+      "keyColor": "30",
+      "keyIcon": ""
+    },
+
+    {
+      "type": "battery",
+      "key": " ├  ",
+      "keyColor": "30",
+      "keyIcon": "",
+      "temp": false,
+      "percent": {
+        "green": 50,
+        "yellow": 20,
+        "type": 0
+      }
+    },
+    
     {
       "type": "localip",
-      "keyIcon": "󰩟",
+      "key": " ├ 󰩟 ",
+      "keyColor": "30",
+      "keyIcon": "",
       "showIpv4": true,
       "showIpv6": false,
       "showMac": false,
@@ -281,38 +308,54 @@
       "showAllIps": false,
       "namePrefix": ""
     },
+
     {
-      "type": "battery",
-      "keyIcon": "",
-      "temp": false,
-      "percent": {
-        "green": 50,
-        "yellow": 20,
-        "type": 0
-      }
+      "type": "locale",
+      "key": " ├  ",
+      "keyColor": "30",
+      "keyIcon": ""
     },
+
+    {
+      "type": "display",
+      "key": " └  ",
+      "keyColor": "30",
+      "keyIcon": "",
+      "compactType": "none",
+      "preciseRefreshRate": false,
+      "order": null
+    },
+
+    {
+      "type": "de",
+      "keyIcon": ""
+    },
+
+    {
+      "type": "wmtheme",
+      "keyIcon": "󰓸"
+    },
+
+    {
+      "type": "theme",
+      "keyIcon": "󰉼"
+    },
+
+    {
+      "type": "icons",
+      "keyIcon": ""
+    },
+
     {
       "type": "poweradapter",
       "keyIcon": "󰚥"
     },
-    {
-      "type": "locale",
-      "keyIcon": ""
-    },
+
     "break",
     {
-      "type": "colors",
+      "type": "custom",
       "key": " ",
-      "keyIcon": "",
-      "symbol": "block",
-      "paddingLeft": 0,
-      "block": {
-        "width": 3,
-        "range": [
-          0,
-          15
-        ]
-      }
+      "format": "{#30}● {#31}● {#32}● {#33}● {#34}●{#}"
     }
   ]
 }

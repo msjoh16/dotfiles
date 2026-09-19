@@ -278,9 +278,6 @@
 ;; Biblio ---------------------------------------------------------------------------
 (use-package biblio)
 
-;(use-package biblio-openlibrary
-;  :after biblio)
-
 ;; Mermaid --------------------------------------------------------------------------
 (use-package ob-mermaid
   :ensure t)
