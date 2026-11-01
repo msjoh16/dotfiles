@@ -1,6 +1,10 @@
 if status is-interactive
 # Commands to run in interactive sessions can go here
 
+# Set variables
+set -gx PASSWORD_STORE_DIR $HOME/files/pass
+set -Ux EDITOR nano
+
 set -U fish_greeting ""
 
 # Set up fish to use starship

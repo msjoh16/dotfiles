@@ -91,10 +91,7 @@
   :hook (org-mode . strider/org-mode-visual-fill))
 
 (setq org-agenda-files
-      '("/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/notes/agenda.org"
-	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/tgfb_inhibition/ic_tgfbtrap_hidose_sting_ic/notebook/notes.org"
-	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/ep4_antagonism/pilot_vorb/notebook/notes.org"
-	"/Users/adamsjoholm/Library/Mobile Documents/com~apple~CloudDocs/files/active/notebook/research_notebook/projects/nrp2/14v11_28v4_mono_survival/notebook/notes.org"))
+      '("~/files/notes/agenda.org"))
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NOTE(n)" "ONGOING(g)" "|" "DONE(d)" "CANCELED(c)")
